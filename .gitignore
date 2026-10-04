@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+
+# Environment / secrets
+.env
+
+# Data and model artifacts (never commit datasets)
+data/raw/*
+data/processed/*
+!data/**/.gitkeep
+models/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# IDE
+.idea/
