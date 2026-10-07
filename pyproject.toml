@@ -9,6 +9,7 @@ description = "Real-time financial fraud detection platform"
 requires-python = ">=3.11"
 dependencies = [
     "pandas>=2.2",
+    "pyarrow>=15.0",
 ]
 
 [project.optional-dependencies]
