@@ -19,3 +19,6 @@ models/
 
 # IDE
 .idea/
+
+# Power BI reports (embed a copy of the data)
+*.pbix
