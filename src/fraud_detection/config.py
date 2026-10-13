@@ -11,3 +11,4 @@ TRAIN_RAW_FILE = RAW_DATA_DIR / "fraudTrain.csv"
 
 USERS_FILE = PROCESSED_DATA_DIR / "users.parquet"
 TRANSACTIONS_FILE = PROCESSED_DATA_DIR / "transactions.parquet"
+FEATURES_FILE = PROCESSED_DATA_DIR / "features.parquet"
