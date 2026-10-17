@@ -31,7 +31,8 @@ def split_tables(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
 
     transactions = (
         df[TRANSACTION_COLUMNS]
-        .sort_values("trans_date_trans_time")
+        # trans_num breaks ties (same timestamp), so the order is always the same
+        .sort_values(["trans_date_trans_time", "trans_num"])
         .reset_index(drop=True)
     )
     if not transactions["trans_num"].is_unique:

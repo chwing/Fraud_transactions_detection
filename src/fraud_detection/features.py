@@ -7,10 +7,11 @@ TIME = "trans_date_trans_time"
 TRANSACTION_FEATURES = ["amt", "category", "hour", "day_of_week", "is_online"]
 # Group B: computed from the card's PAST transactions only (never the current or future ones)
 CARD_FEATURES = ["hours_since_prev_tx", "tx_count_1h", "tx_count_24h", "amt_vs_card_mean"]
-# Group C: looked up in the users table
-USER_FEATURES = ["city_pop"]
-# Computed but excluded by default; kept only if the Step 4 ablation shows it helps
-OPTIONAL_FEATURES = ["age"]
+# Group C: looked up in the users table. Empty: no user feature is a model input
+# (city_pop: no gain in the ablation; age: excluded for fairness despite +0.04 PR-AUC)
+USER_FEATURES = []
+# Computed and saved in features.parquet for analysis, but NOT model inputs
+OPTIONAL_FEATURES = ["city_pop", "age"]
 
 # Not features: identify the row (cc_num is kept for per-card analysis, never as model input)
 ID_COLUMNS = ["trans_num", TIME, "cc_num"]

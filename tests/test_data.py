@@ -58,3 +58,11 @@ def test_duplicate_trans_num_raises():
     # The split must detect the duplicate key and raise.
     with pytest.raises(ValueError):
         split_tables(raw)
+
+
+def test_equal_timestamps_are_ordered_by_trans_num():
+    # Same card, same second: the order must not depend on the input order
+    raw = pd.DataFrame([make_row(1, "t2"), make_row(1, "t1")])
+
+    _, transactions = split_tables(raw)
+    assert transactions["trans_num"].tolist() == ["t1", "t2"]

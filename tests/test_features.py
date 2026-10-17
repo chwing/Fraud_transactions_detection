@@ -4,7 +4,7 @@ import pytest
 from fraud_detection.features import (
     CARD_FEATURES,
     TRANSACTION_FEATURES,
-    USER_FEATURES,
+    OPTIONAL_FEATURES,
     add_card_features,
     add_transaction_features,
     add_user_features,
@@ -99,7 +99,7 @@ def test_user_features_values():
     assert out["city_pop"].tolist() == [149, 2_000_000, 149, 149]
     # Card 1 born 1978-06-21 -> 40 on 2019-01-01 ; card 2 born 2000-01-01 -> 19
     assert out["age"].tolist() == [40, 19, 40, 40]
-    assert set(USER_FEATURES) <= set(out.columns)
+    assert set(OPTIONAL_FEATURES) <= set(out.columns)
 
 
 def test_unknown_card_raises():
